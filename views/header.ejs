@@ -6,5 +6,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image.ai</title>
     <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+    <style>
+        .button {
+          --color: #00A97F;
+          padding: 0.8em 1.7em;
+          background-color: transparent;
+          border-radius: .3em;
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+          transition: .5s;
+          font-weight: 400;
+          font-size: 17px;
+          border: 1px solid;
+          font-family: inherit;
+          text-transform: uppercase;
+          color: var(--color);
+          z-index: 1;
+          }
+
+          .button::before, .button::after {
+          content: '';
+          display: block;
+          width: 50px;
+          height: 50px;
+          transform: translate(-50%, -50%);
+          position: absolute;
+          border-radius: 50%;
+          z-index: -1;
+          background-color: var(--color);
+          transition: 1s ease;
+          }
+
+          .button::before {
+          top: -1em;
+          left: -1em;
+          }
+
+          .button::after {
+          left: calc(100% + 1em);
+          top: calc(100% + 1em);
+          }
+
+          .button:hover::before, .button:hover::after {
+          height: 410px;
+          width: 410px;
+          }
+
+          .button:hover {
+          color: rgb(10, 25, 30);
+          }
+
+          .button:active {
+          filter: brightness(.8);
+          }
+
+          .input {
+            max-width: 500px;
+            width: 400px;
+            background-color: #f5f5f5;
+            color: #242424;
+            padding: .15rem .5rem;
+            min-height: 40px;
+            border-radius: 4px;
+            outline: none;
+            border: none;
+            line-height: 1.15;
+            box-shadow: 0px 10px 20px -18px;
+          }
+
+          input:focus {
+            border-bottom: 2px solid #00A97F;
+            border-radius: 4px 4px 2px 2px;
+          }
+
+          input:hover {
+            outline: 1px solid lightgrey;
+          }
+          body{
+            background-color: #20262E;
+          }
+          h1{
+            color: #00A97F;
+            margin: 0px;
+          }
+          header{
+            background-color: #141414;
+            padding: 10px;
+            box-shadow: 0px 10px 20px -18px;
+            /* width: 100%; */
+
+          }
+          body{
+              margin: 0%;
+              padding: 0%;
+          }
+          .err{
+            color:#F55050;
+          }
+          #searchedimg{
+            height: auto;
+            width: auto;
+          }
+          @media screen and (max-width: 560px) {
+              .input{
+                  width: 90%;
+              }
+              #searchedimg{
+                width: 100%;
+              }
+
+          }
+    </style>
 </head>
 <body>
+    <div class="card">
+        <div class="card__content"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>

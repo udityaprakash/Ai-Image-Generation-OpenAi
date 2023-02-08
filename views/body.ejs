@@ -1,5 +1,24 @@
 <%- include("header") -%>
+<header>
+    <h1><img src="/images/logo.png" height="30" width="30"> Image.Ai</h1>
+</header>
+<p>
 
-server started for img
+</p>
+<center>
+    <form action="/" method="post">
+        <input type="text" name="context" class="input" placeholder="Search your thoughts">
+        <button type="submit" class="button">Generate</button>
+    </form>
+    <p class="err"><%= errmsg %></p>
+    <p>
+
+    </p>
+    <% if(imgurl){ %>
+    <img src = <%= imgurl %> alt="searched image" id="searchedimg">
+    <% }else{} %>
+    
+</center>
+
     
 <%- include("footer") -%>
