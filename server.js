@@ -42,6 +42,6 @@ app.post("/", async (req, res)=>{
 
 
 
-app.listen(4000,(err)=>{
-    console.log("server started");
+app.listen(process.env.PORT || 4000,(err)=>{
+    console.log("server started successfully");
 })
