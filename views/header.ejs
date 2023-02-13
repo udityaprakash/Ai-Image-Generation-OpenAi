@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image.ai</title>
     <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,500&display=swap" rel="stylesheet">
     <style>
         .button {
           --color: #00A97F;
@@ -18,9 +21,8 @@
           transition: .5s;
           font-weight: 400;
           font-size: 17px;
+          font-family: auto;
           border: 1px solid;
-          font-family: inherit;
-          text-transform: uppercase;
           color: var(--color);
           z-index: 1;
           }
@@ -89,6 +91,7 @@
           h1{
             color: #00A97F;
             margin: 0px;
+            font-family: auto;
           }
           header{
             background-color: #141414;
@@ -100,6 +103,7 @@
           body{
               margin: 0%;
               padding: 0%;
+              font-family: auto;
           }
           .err{
             color:#F55050;
@@ -108,6 +112,30 @@
             height: auto;
             width: auto;
           }
+          header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+          .card {
+            width: 70%;
+            min-height: 10rem;
+            padding: 1rem;
+            justify-content: center;
+            min-width: 200px;
+            background: rgb(236, 236, 236);
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+          }
+          #para{
+            font-size: inherit;
+            color: #00A97F;
+            font-family: 'Raleway', sans-serif;
+          }
+          .chatinbox{
+            padding-bottom: 100px;
+            max-height: min-content;
+          }
           @media screen and (max-width: 560px) {
               .input{
                   width: 90%;
@@ -115,15 +143,14 @@
               #searchedimg{
                 width: 100%;
               }
+              .chatinbox{
+                padding-bottom: 10px;
+              }
+              .card{
+                width: 85%;
+              }
 
           }
     </style>
 </head>
 <body>
-    <div class="card">
-        <div class="card__content"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
-    </div>

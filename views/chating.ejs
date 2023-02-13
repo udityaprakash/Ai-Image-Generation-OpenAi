@@ -1,0 +1,32 @@
+<%- include("header") -%>
+<header>
+    <h1><img src="/images/logo.png" height="30" width="30"> Chat.Ai</h1>
+    <a href="/"><button class="button">Ai Image</button></a>
+</header>
+<p>
+
+</p>
+<center>
+    <div class="chatinbox">
+        <form action="/chat" method="post">
+            <input type="text" name="text" class="input" placeholder="Text here to chat">
+            <button type="submit" class="button">ASK</button>
+        </form>
+        <p class="err"><%= errmsg %></p>
+        <p>
+
+    </div>
+
+    </p>
+    <% if(para){ %>
+    <div class="card">
+        <br>
+        <p id="para"><%= para %></p>
+        <br>
+    </div>
+    <% }else{} %>
+    
+</center>
+
+    
+<%- include("footer") -%>
