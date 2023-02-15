@@ -58,39 +58,39 @@ app.post("/", async (req, res)=>{
 app.get("/chat",async (req,res)=>{
     // console.log(await asking("hello can you please help me out?"));
 
-    res.render("chating.ejs",{para:"",errmsg:""});
+    res.render("chating.ejs",{para:"",que:null, errmsg:""});
 
 }).post("/chat",async(req , res)=>{
     try{
     var {text} = req.body;
     // console.log(text.match(/uditya/gi));
     if(text){
-        if(text.length >= 6){
+        if(text.length >= 3){
             console.log("Que: "+text);
             if(text.match(/uditya/gi)){
                 let resj = Math.floor(Math.random() * 8.9);
                 console.log("Ans: "+uditya[resj]);
-                res.render("chating.ejs",{para: uditya[resj] ,errmsg:"My Father 'Uditya Prakash'"});
+                res.render("chating.ejs",{para: uditya[resj], que: text ,errmsg:"My Father 'Uditya Prakash'"});
 
             }else if(text.match(/vasu/gi)){
                 let resj = Math.floor(Math.random() * 5.9);
                 console.log("Ans: "+vasu[resj]);
-                res.render("chating.ejs",{para: vasu[resj] ,errmsg:""});
+                res.render("chating.ejs",{para: vasu[resj], que: text  ,errmsg:""});
             }else{
                 let answer = await asking(text);
                 console.log("Ans: "+answer);
-                res.render("chating.ejs",{para: answer ,errmsg:""});
+                res.render("chating.ejs",{para: answer, que: text  ,errmsg:""});
 
             }
         }else{
-            res.render("chating.ejs",{para: answer ,errmsg:"Write Something more."});
+            res.render("chating.ejs",{para: null , que: null ,errmsg:"Write Something more."});
         }
         
     }else{
-        res.render("chating.ejs",{para: answer ,errmsg:"Please write something to search"});
+        res.render("chating.ejs",{para: null, que: null  ,errmsg:"Please write something to search"});
     }
 }catch(err){
-    res.render("chating.ejs",{para: "try contacting uditya" ,errmsg: "Some internal server error occured"});
+    res.render("chating.ejs",{para: "try contacting my father 'uditya'",que: null ,errmsg: "Some internal server error occured"});
 }
 
     

@@ -18,12 +18,12 @@
     </div>
 
     </p>
-    <% if(para){ %>
-    <div class="card">
         <br>
+        <% if(para || que){ %>
+        <div class="card">
+        <p id="ques">-> <%= que %></p>
         <p id="para"><%= para %></p>
-        <br>
-    </div>
+        </div>
     <% }else{} %>
     
 </center>
