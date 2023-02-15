@@ -24,15 +24,26 @@ app.post("/", async (req, res)=>{
     let { context } = req.body;
     if(context){
         if(context.length >= 15){
+            try{
+                console.log("IMGQue: "+context);
+                const response = await openai.createImage({
+                    prompt: context,
+                    n: 1,
+                    size: "512x512",
+                  });
+                  image_url = response.data.data[0].url;
+                  console.log("IMGAnsurl: "+image_url);
+                  res.render("body.ejs",{imgurl: image_url , errmsg:""});
 
-            const response = await openai.createImage({
-                prompt: context,
-                n: 1,
-                size: "512x512",
-              });
-              image_url = response.data.data[0].url;
-            //   res.json({urls:response.data.data});
-              res.render("body.ejs",{imgurl: image_url , errmsg:""});
+            }catch(err){
+                if(err.response){
+                    console.log("IMGG err.response.status : "+err.response.status+"\n");
+                    console.log("IMGG err.response.data : "+err.response.data);
+                }else{
+                    console.log("IMGG error without response: "+err);
+                }
+                res.render("body.ejs",{imgurl:null, errmsg:"Please Request Again"});
+            }
         }else{
             res.render("body.ejs",{imgurl:null, errmsg:"Write Something more."});
         }
@@ -55,16 +66,19 @@ app.get("/chat",async (req,res)=>{
     // console.log(text.match(/uditya/gi));
     if(text){
         if(text.length >= 6){
+            console.log("Que: "+text);
             if(text.match(/uditya/gi)){
                 let resj = Math.floor(Math.random() * 8.9);
+                console.log("Ans: "+uditya[resj]);
                 res.render("chating.ejs",{para: uditya[resj] ,errmsg:"My Father 'Uditya Prakash'"});
 
             }else if(text.match(/vasu/gi)){
                 let resj = Math.floor(Math.random() * 5.9);
+                console.log("Ans: "+vasu[resj]);
                 res.render("chating.ejs",{para: vasu[resj] ,errmsg:""});
             }else{
                 let answer = await asking(text);
-                console.log(answer);
+                console.log("Ans: "+answer);
                 res.render("chating.ejs",{para: answer ,errmsg:""});
 
             }
